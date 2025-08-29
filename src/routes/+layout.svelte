@@ -123,7 +123,7 @@
 
 <header
 	class="sticky top-0 z-50 transition-opacity {scrollProgress > 0.02
-		? 'border-b border-base-300 bg-base-300/60 backdrop-blur '
+		? 'border-b border-base-300 bg-base-300/40 backdrop-blur '
 		: ''}"
 >
 	<div class="mx-auto max-w-6xl px-4">

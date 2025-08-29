@@ -1,3 +1,5 @@
+import { Github, Instagram } from 'lucide-svelte';
+
 export const projetos = [
 	{
 		id: 1,
@@ -31,7 +33,7 @@ export const projetos = [
 		status: 'in-progress',
 		startDate: '2024-01',
 		endDate: null,
-		isMobile: false,
+		isMobile: false
 	},
 	{
 		id: 2,
@@ -63,7 +65,7 @@ export const projetos = [
 		images: [
 			'/villa1.png', // placeholder, trocar por prints reais
 			'/villa2.png',
-			'/villa3.png',
+			'/villa3.png'
 		],
 		githubUrl: '', // privado
 		liveUrl: 'https://www.villaricalofts.com.br/',
@@ -78,7 +80,7 @@ export const projetos = [
 		status: 'completed',
 		startDate: '2025-02',
 		endDate: '2025-03',
-		isMobile: false,
+		isMobile: false
 	},
 	{
 		id: 4,
@@ -98,7 +100,7 @@ export const projetos = [
 		status: 'completed',
 		startDate: '2025-02',
 		endDate: '2025-08-29',
-		isMobile: true,
+		isMobile: true
 	},
 	{
 		id: 5,
@@ -122,6 +124,19 @@ export const projetos = [
 		status: 'completed',
 		startDate: '2025-02',
 		endDate: '2025-08-29',
-		isMobile: false,
+		isMobile: false
+	}
+];
+
+export const socialLinks = [
+	{
+		name: 'GitHub',
+		icon: Github,
+		link: 'https://github.com/brenin35'
+	},
+	{
+		name: 'Instagram',
+		icon: Instagram,
+		link: 'https://instagram.com/brenoibd'
 	}
 ];

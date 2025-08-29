@@ -68,16 +68,22 @@ export const dictionaries: Dictionaries = {
 		'projects.title': 'Alguns projetos',
 
 		'experiences.title': 'Experiências',
-		'experiences.1.role': 'Desenvolvedor Front-end',
-		'experiences.1.company': 'Empresa XYZ',
-		'experiences.1.period': '2022 - Presente',
-		'experiences.1.desc':
-			'Desenvolvimento de aplicações web responsivas, otimização de performance e trabalho em equipe com metodologias ágeis.',
-		'experiences.2.role': 'Desenvolvedor Full-stack',
-		'experiences.2.company': 'Startup ABC',
-		'experiences.2.period': '2020 - 2022',
+		'experiences.1.role': 'Estudante de Engenharia de Software',
+		'experiences.1.company': 'Universidade - PUC MINAS',
+		'experiences.1.period': '2023 - presente',
+		'experiences.1.desc': 'Início da graduação em engenharia de software na PUC da praça da liberdade.',
+
+		'experiences.2.role': 'Estagiário Front-end',
+		'experiences.2.company': 'CrossVirus',
+		'experiences.2.period': 'Início de 2024 - Final de 2024',
 		'experiences.2.desc':
-			'Desenvolvimento completo de aplicações web, desde o front-end até o back-end, incluindo banco de dados e APIs.',
+			'Desenvolvimento front-end de dashboards para visualização de dados geográficos de epidemias.',
+
+		'experiences.3.role': 'Co-fundador e Desenvolvedor',
+		'experiences.3.company': 'Empresa própria (com meu irmão)',
+		'experiences.3.period': 'Final de 2024 - presente',
+		'experiences.3.desc':
+			'Desenvolvimento de softwares sob medida para empresas, incluindo Duarte Distribuidora e Rota 88.',
 
 		// Project detail page translations
 		'projects.not_found': 'Projeto não encontrado',
@@ -193,7 +199,8 @@ export const dictionaries: Dictionaries = {
 		'projects.5.feature1': 'Visualização em tempo real do mapa de pedidos e motoboys',
 		'projects.5.feature2': 'Gerenciamento de usuários e permissões',
 		'projects.5.feature3': 'Relatórios personalizados',
-		'projects.5.feature4': 'Integração com plataformas de pedidos padrão Open Delivery'
+		'projects.5.feature4': 'Integração com plataformas de pedidos padrão Open Delivery',
+		'form.sending' : "Enviando..."
 	},
 	en: {
 		// Brand / Hero
@@ -236,16 +243,22 @@ export const dictionaries: Dictionaries = {
 		'projects.title': 'Some projects',
 
 		'experiences.title': 'Experience',
-		'experiences.1.role': 'Front-end Developer',
-		'experiences.1.company': 'Company XYZ',
-		'experiences.1.period': '2022 - Present',
-		'experiences.1.desc':
-			'Responsive web development, performance optimization, and teamwork using agile methodologies.',
-		'experiences.2.role': 'Full-stack Developer',
-		'experiences.2.company': 'Startup ABC',
-		'experiences.2.period': '2020 - 2022',
+		'experiences.1.role': 'Software Engineering Student',
+		'experiences.1.company': 'University',
+		'experiences.1.period': '2023 - Present',
+		'experiences.1.desc': 'Learning programming, front-end, and basic algorithms.',
+
+		'experiences.2.role': 'Front-end Intern',
+		'experiences.2.company': 'CrossVirus',
+		'experiences.2.period': 'Early 2024 - End of 2024',
 		'experiences.2.desc':
-			'End-to-end web development from front-end to back-end, including databases and APIs.',
+			'Front-end development of dashboards for geographic epidemic data visualization.',
+
+		'experiences.3.role': 'Co-founder and Developer',
+		'experiences.3.company': 'Own Company (with my brother)',
+		'experiences.3.period': 'End of 2024 - Present',
+		'experiences.3.desc':
+			'Developing custom software for companies, including Duarte Distribuidora and Rota 88.',
 
 		// Project detail page translations
 		'projects.not_found': 'Project not found',
@@ -364,7 +377,8 @@ export const dictionaries: Dictionaries = {
 		'projects.5.feature1': 'Real-time map view of orders and delivery drivers',
 		'projects.5.feature2': 'User and role management',
 		'projects.5.feature3': 'Custom reports',
-		'projects.5.feature4': 'Integration with order platforms following Open Delivery standards'
+		'projects.5.feature4': 'Integration with order platforms following Open Delivery standards',
+		'form.sending' : "Sending..."
 	}
 };
 

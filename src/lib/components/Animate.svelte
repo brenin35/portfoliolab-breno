@@ -2,7 +2,7 @@
 	import { viewport } from '$lib/utils/viewport';
 
 	let inView = $state(false);
-	let { variant = 'fade', duration = 0.8, delay = 0, children } = $props();
+	let { variant = 'fade', duration = 2, delay = 0, children } = $props();
 	function handleEnterViewport() {
 		inView = true;
 	}

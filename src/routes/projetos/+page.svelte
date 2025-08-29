@@ -87,35 +87,26 @@
 					class="group relative rounded-lg border border-base-300 p-1 transition-all duration-500 hover:scale-102"
 				>
 					<GlowCard spread={50} glow={true} disabled={false} proximity={64} inactiveZone={0.01} />
-					<Animate delay={index * 0.07}>
-						<div class="relative flex h-full flex-col gap-4 rounded-lg bg-base-200 p-6">
-							<div class="h-48 overflow-hidden rounded-lg bg-base-100">
+					<div class="relative flex h-full flex-col gap-4 rounded-lg bg-base-200 p-4">
+						<div class="flex flex-col gap-4">
+							<div class="h-48 bg-base-100">
 								<img
-									src={projeto.imageUrl}
+									src={projeto.images[0]}
 									alt={t(projeto.tituloKey, currentLocale)}
-									class="h-full w-full rounded-lg object-cover transition-transform duration-300 group-hover:scale-105"
-									loading="lazy"
+									class="h-full w-full rounded-lg object-cover"
 								/>
 							</div>
-							<h3
-								class="text-xl font-semibold text-base-content transition-colors group-hover:text-primary"
-							>
+							<h3 class="text-xl font-semibold text-base-content">
 								{t(projeto.tituloKey, currentLocale)}
 							</h3>
-							<p class="leading-relaxed text-base-content/80">
-								{t(projeto.descKey, currentLocale)}
-							</p>
-							<div class="mt-auto flex flex-wrap gap-2">
-								{#each projeto.tecnologias as tech}
-									<span
-										class="rounded-full bg-primary/20 px-3 py-1 text-sm font-medium text-primary"
-									>
-										{tech}
-									</span>
-								{/each}
-							</div>
+							<p class="text-base-content">{t(projeto.descKey, currentLocale)}</p>
 						</div>
-					</Animate>
+						<div class="flex flex-wrap gap-2">
+							{#each projeto.tecnologias as tech}
+								<span class="rounded bg-primary/20 px-3 py-1 text-sm text-primary">{tech}</span>
+							{/each}
+						</div>
+					</div>
 				</a>
 			{/each}
 		</div>

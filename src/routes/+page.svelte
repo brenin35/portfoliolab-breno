@@ -21,7 +21,25 @@
 		});
 	}
 
-	const habilidades = ['JavaScript', 'React', 'Node.js', 'TypeScript', 'Svelte', 'Tailwind'];
+	const habilidades = [
+		'HTML',
+		'CSS',
+		'JavaScript',
+		'TypeScript',
+		'Java',
+		'Java Spring',
+		'React',
+		'React Native',
+		'Node.js',
+		'Svelte',
+		'SvelteKit',
+		'Tailwind',
+		'BootStrap',
+		'PostgreSQL',
+		'MySQL',
+		'Drizzle ORM',
+		'Prisma'
+	];
 
 	const experiencias = [
 		{
@@ -62,19 +80,17 @@
 		<Animate>
 			<div class="grid items-center gap-12 lg:grid-cols-2">
 				<div class="space-y-8 text-center lg:text-left">
-					<div class="wave-container">
-						<h1
-							class=" flex flex-wrap text-left text-5xl leading-tight font-bold text-base-content lg:text-5xl"
-						>
-							{#each names as name, i}
-								<Animate delay={i * 0.3}>
-									<span class="name-text mr-5" style="animation-delay: {i * 0.2}s">{name}</span>
-								</Animate>
-							{/each}
-						</h1>
-					</div>
-					<p class="mx-auto max-w-2xl text-xl leading-relaxed text-base-content lg:mx-0">
-						{t('hero.intro', currentLocale)}
+					<h1
+						class="flex flex-wrap justify-center text-center text-5xl leading-tight font-bold text-base-content lg:justify-start lg:text-left lg:text-5xl"
+					>
+						{#each names as name, i}
+							<Animate delay={i * 0.3}>
+								<span class="name-text mr-5" style="animation-delay: {i * 0.2}s">{name}</span>
+							</Animate>
+						{/each}
+					</h1>
+					<p class="mx-auto max-w-2xl leading-relaxed text-base-content md:text-lg lg:mx-0">
+						{@html t('hero.intro', currentLocale)}
 					</p>
 				</div>
 
@@ -84,11 +100,7 @@
 					>
 						<div class="flex h-full w-full items-center justify-center text-lg">
 							<!-- {t('profile.photo', currentLocale)} -->
-							<img
-								class="h-full w-full object-cover"
-								src="/breno.webp"
-								alt=""
-							/>
+							<img class="h-full w-full object-cover" src="/breno.webp" alt="" />
 						</div>
 					</div>
 				</div>
@@ -135,7 +147,7 @@
 								</h3>
 							</div>
 							<p class="mb-4 text-lg leading-relaxed text-base-content">
-								{t('about.who_text', currentLocale)}
+								{@html t('about.who_text', currentLocale)}
 							</p>
 						</div>
 					</div>
@@ -205,19 +217,21 @@
 								proximity={64}
 								inactiveZone={0.01}
 							/>
-							<div class="relative flex h-full flex-col gap-4 rounded-lg bg-base-200 p-6">
-								<div class="h-48 bg-base-100">
-									<img
-										src={projeto.imageUrl}
-										alt={t(projeto.tituloKey, currentLocale)}
-										class="h-full w-full rounded-lg object-cover"
-									/>
+							<div class="relative flex h-full flex-col gap-4 rounded-lg bg-base-200 p-4 ">
+								<div class="flex flex-col gap-4">
+									<div class="h-48 bg-base-100">
+										<img
+											src={projeto.images[0]}
+											alt={t(projeto.tituloKey, currentLocale)}
+											class="h-full w-full rounded-lg object-cover"
+										/>
+									</div>
+									<h3 class="text-xl font-semibold text-base-content">
+										{t(projeto.tituloKey, currentLocale)}
+									</h3>
+									<p class="text-base-content">{t(projeto.descKey, currentLocale)}</p>
 								</div>
-								<h3 class="text-xl font-semibold text-base-content">
-									{t(projeto.tituloKey, currentLocale)}
-								</h3>
-								<p class="text-base-content">{t(projeto.descKey, currentLocale)}</p>
-								<div class="flex gap-2">
+								<div class="flex flex-wrap gap-2">
 									{#each projeto.tecnologias as tech}
 										<span class="rounded bg-primary/20 px-3 py-1 text-sm text-primary">{tech}</span>
 									{/each}
@@ -297,7 +311,7 @@
 							<p class="text-xs font-semibold tracking-wider text-base-content">
 								{t('contact.email_label', currentLocale)}
 							</p>
-							<p class="text-base-content">meuemail@gmail.com</p>
+							<p class="text-base-content">oliveira.brenobrandao@gmail.com</p>
 						</div>
 					</div>
 
@@ -318,7 +332,7 @@
 							<p class="text-xs font-semibold tracking-wider text-base-content">
 								{t('contact.location_label', currentLocale)}
 							</p>
-							<p class="text-base-content">{t('contact.location_value', currentLocale)}</p>
+							<p class="text-base-content">Rua paraiba 710, Savassi, BH</p>
 						</div>
 					</div>
 

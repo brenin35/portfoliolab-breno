@@ -30,10 +30,9 @@ type Dictionaries = Record<Locale, Dict>;
 export const dictionaries: Dictionaries = {
 	pt: {
 		// Brand / Hero
-		'brand.name': 'Meu Nome Aqui',
+		'brand.name': 'Breno',
 		'hero.intro':
-			'Texto introdutório: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-
+			'Olá! Sou um desenvolvedor <strong>fullstack</strong> que iniciou sua jornada na programação em 2023. Tenho paixão por tecnologia, gosto de explorar novos lugares, assistir bons filmes e transformar ideias em soluções digitais.',
 		// Navigation
 		'nav.home': 'Home',
 		'nav.about': 'Sobre mim',
@@ -62,17 +61,12 @@ export const dictionaries: Dictionaries = {
 		'about.title': 'Sobre mim',
 		'about.who': 'Quem sou eu',
 		'about.who_text':
-			'Sou um desenvolvedor focado em criar experiências web rápidas, acessíveis e modernas. Apaixonado por aprender e compartilhar conhecimento.',
+			'Como mencionado, sou um desenvolvedor <strong>fullstack</strong>, mas tenho um carinho especial pelo desenvolvimento <strong>frontend</strong>, onde consigo unir criatividade e tecnologia. Estou sempre em busca de aprender novas ferramentas, boas práticas e formas de criar experiências digitais mais impactantes.',
 		'about.skills': 'Habilidades',
 
 		// Projects & Experience
-		'projects.title': 'Projetos',
-		'projects.1.title': 'Projeto 1',
-		'projects.1.desc': 'Descrição do projeto, tecnologias utilizadas e objetivos alcançados.',
-		'projects.2.title': 'Projeto 2',
-		'projects.2.desc': 'Descrição do projeto, tecnologias utilizadas e objetivos alcançados.',
-		'projects.3.title': 'Projeto 3',
-		'projects.3.desc': 'Descrição do projeto, tecnologias utilizadas e objetivos alcançados.',
+		'projects.title': 'Alguns projetos',
+
 		'experiences.title': 'Experiências',
 		'experiences.1.role': 'Desenvolvedor Front-end',
 		'experiences.1.company': 'Empresa XYZ',
@@ -101,23 +95,6 @@ export const dictionaries: Dictionaries = {
 		'projects.see_more': 'Ver mais',
 
 		// Detailed descriptions and features
-		'projects.1.detailed_desc':
-			'Uma aplicação web moderna construída com React e Node.js, focada em performance e experiência do usuário. O projeto implementa as melhores práticas de desenvolvimento e arquitetura escalável.',
-		'projects.1.feature1': 'Interface responsiva e intuitiva',
-		'projects.1.feature2': 'API RESTful robusta',
-		'projects.1.feature3': 'Autenticação e autorização seguras',
-
-		'projects.2.detailed_desc':
-			'Aplicação desenvolvida com Svelte e TypeScript, demonstrando a eficiência e simplicidade do framework. Foco em componentes reutilizáveis e tipagem forte.',
-		'projects.2.feature1': 'Componentes Svelte reutilizáveis',
-		'projects.2.feature2': 'Tipagem completa com TypeScript',
-		'projects.2.feature3': 'Bundle otimizado e performático',
-
-		'projects.3.detailed_desc':
-			'Aplicação mobile-first construída com Vue.js e Firebase, oferecendo sincronização em tempo real e experiência offline. Integração completa com serviços de nuvem.',
-		'projects.3.feature1': 'Sincronização em tempo real',
-		'projects.3.feature2': 'Funcionalidade offline',
-		'projects.3.feature3': 'Integração com Firebase',
 
 		'contact.title': 'Contato',
 		'contact.open_to_work': 'Aberto para trabalho e colaborações',
@@ -149,13 +126,80 @@ export const dictionaries: Dictionaries = {
 		'projects.empty.description': 'Tente ajustar seus filtros ou volte mais tarde.',
 
 		// Accessibility
-		'projects.image.alt': 'Imagem do projeto'
+		'projects.image.alt': 'Imagem do projeto',
+
+		//PROJETO DUARTE:
+		'projects.1.title': 'Duarte Distribuidora',
+		'projects.1.desc': 'Sistema de gestão completo para distribuidora de bebidas.',
+
+		'projects.1.detailed_desc':
+			'Projeto desenvolvido para a Duarte Distribuidora de Bebidas. O sistema permite gerenciar múltiplas distribuidoras com recursos como estoque, financeiro, gastos, custos, dashboards personalizadas, cardápio digital, emissão de notas fiscais e integração com iFood. Iniciado em 2024 e atualmente em suas etapas finais, o sistema continua recebendo melhorias constantes.',
+		'projects.1.feature1': 'Gerenciamento de produtos (cadastro, categorias e preços)',
+		'projects.1.feature2': 'Controle de estoque com movimentações e alertas',
+		'projects.1.feature3': 'Gestão financeira: gastos, custos e fluxo de caixa',
+		'projects.1.feature4': 'Dashboards personalizadas para indicadores do negócio',
+		'projects.1.feature5': 'Cardápio digital integrado',
+		'projects.1.feature6': 'Integração com iFood',
+		'projects.1.feature7': 'Emissão de notas fiscais eletrônicas',
+		'projects.1.feature8': 'Suporte a múltiplas distribuidoras',
+		'projects.1.feature9': 'PDV (Ponto de Venda)',
+		'projects.1.feature10': 'Gestão de usuários e permissões',
+		'projects.1.feature11': 'Gestão de clientes e fornecedores',
+
+		//MYFOOD:
+		'projects.2.title': 'MyFood',
+		'projects.2.desc': 'Sistema para restaurantes gerenciar produtos, mesas e pedidos via QR Code.',
+		'projects.2.detailed_desc':
+			'Projeto desenvolvido como trabalho interdisciplinar de faculdade. O MyFood é um sistema completo para restaurantes, permitindo gerenciar produtos, cardápio e mesas com QR Code. O cliente escaneia o código da mesa, faz o pedido diretamente pelo celular, o pedido chega à cozinha e o pagamento é processado via integração com a API do Mercado Pago. O sistema também permite avaliações de clientes por prato.',
+
+		// Funcionalidades
+		'projects.2.feature1': 'Gerenciamento de produtos e cardápio',
+		'projects.2.feature2': 'Controle de mesas com QR Code único',
+		'projects.2.feature3': 'Pedidos realizados pelo cliente via celular',
+		'projects.2.feature4': 'Envio automático dos pedidos para a cozinha',
+		'projects.2.feature5': 'Pagamentos integrados com Mercado Pago',
+		'projects.2.feature6': 'Avaliações de clientes por prato',
+		//VILLA:
+		'projects.3.title': 'Villa Rica Lofts',
+		'projects.3.desc': 'Landing page do Villa Rica Lofts com informações e reservas.',
+
+		'projects.3.detailed_desc':
+			'Projeto desenvolvido para Villa Rica Lofts, um empreendimento localizado na Serra da Moeda. A landing page apresenta informações sobre o loft, galerias de fotos, integração com o sistema de reservas Hotelink e suporte a múltiplas páginas. Desenvolvido com Svelte, Directus como banco de dados, TailwindCSS e Paraglide para internacionalização.',
+
+		// Funcionalidades
+		'projects.3.feature1': 'Landing page com informações do empreendimento',
+		'projects.3.feature2': 'Integração com sistema de reservas Hotelink',
+		'projects.3.feature3': 'Múltiplas páginas internas (galeria, contato, sobre)',
+		'projects.3.feature4': 'Internacionalização com Paraglide',
+		'projects.3.feature5': 'Banco de dados gerenciado pelo Directus',
+
+		//ROTA:
+		// Projeto Rota 88 Mobile
+		'projects.4.title': 'Rota 88 - Mobile',
+		'projects.4.desc': 'App mobile para motoboys receberem e entregarem pedidos.',
+
+		'projects.4.detailed_desc':
+			'Rota 88 Mobile é um aplicativo desenvolvido para motoboys acompanharem seus pedidos em tempo real. Permite visualizar o mapa, rotas planejadas e detalhes dos pedidos a serem entregues. O projeto foi iniciado há 6 meses e finalizado em 29 de agosto de 2025, garantindo rastreabilidade e eficiência nas entregas.',
+		'projects.4.feature1': 'Visualização de mapa com localização dos pedidos',
+		'projects.4.feature2': 'Rotas otimizadas para entrega',
+		'projects.4.feature3': 'Lista de pedidos a serem entregues',
+
+		// Projeto Rota 88 Web
+		'projects.5.title': 'Rota 88 - Web',
+		'projects.5.desc': 'Plataforma web para gerenciamento logístico e pedidos em tempo real.',
+
+		'projects.5.detailed_desc':
+			'Rota 88 Web é uma plataforma web desacoplada do app mobile, focada em logística. Permite integração com plataformas de pedidos seguindo padrões abertos (ex: iFood, Saipos), gerenciamento de usuários, visualização em tempo real de pedidos e motoboys no mapa, além de relatórios personalizados. Desenvolvido com Svelte e SvelteKit, o backend utiliza Postgres.',
+		'projects.5.feature1': 'Visualização em tempo real do mapa de pedidos e motoboys',
+		'projects.5.feature2': 'Gerenciamento de usuários e permissões',
+		'projects.5.feature3': 'Relatórios personalizados',
+		'projects.5.feature4': 'Integração com plataformas de pedidos padrão Open Delivery'
 	},
 	en: {
 		// Brand / Hero
 		'brand.name': 'My Name Here',
 		'hero.intro':
-			'Intro text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+			'Hi! I am a <strong>fullstack developer</strong> who started coding in 2023. I am passionate about technology, love traveling, watching good movies, and turning ideas into digital solutions.',
 
 		// Navigation
 		'nav.home': 'Home',
@@ -185,17 +229,12 @@ export const dictionaries: Dictionaries = {
 		'about.title': 'About me',
 		'about.who': 'Who am I',
 		'about.who_text':
-			'I am a developer focused on building fast, accessible, and modern web experiences. Passionate about learning and sharing knowledge.',
+			'As mentioned, I am a <strong>fullstack developer</strong>, but I have a special passion for <strong>frontend development</strong>, where I can blend creativity with technology. I am constantly looking to learn new tools, best practices, and ways to create more impactful digital experiences.',
 		'about.skills': 'Skills',
 
 		// Projects & Experience
-		'projects.title': 'Projects',
-		'projects.1.title': 'Project 1',
-		'projects.1.desc': 'Project description, tech used and goals achieved.',
-		'projects.2.title': 'Project 2',
-		'projects.2.desc': 'Project description, tech used and goals achieved.',
-		'projects.3.title': 'Project 3',
-		'projects.3.desc': 'Project description, tech used and goals achieved.',
+		'projects.title': 'Some projects',
+
 		'experiences.title': 'Experience',
 		'experiences.1.role': 'Front-end Developer',
 		'experiences.1.company': 'Company XYZ',
@@ -224,23 +263,7 @@ export const dictionaries: Dictionaries = {
 		'projects.see_more': 'See more',
 
 		// Detailed descriptions and features
-		'projects.1.detailed_desc':
-			'A modern web application built with React and Node.js, focused on performance and user experience. The project implements development best practices and scalable architecture.',
-		'projects.1.feature1': 'Responsive and intuitive interface',
-		'projects.1.feature2': 'Robust RESTful API',
-		'projects.1.feature3': 'Secure authentication and authorization',
 
-		'projects.2.detailed_desc':
-			'Application developed with Svelte and TypeScript, demonstrating the efficiency and simplicity of the framework. Focus on reusable components and strong typing.',
-		'projects.2.feature1': 'Reusable Svelte components',
-		'projects.2.feature2': 'Complete TypeScript typing',
-		'projects.2.feature3': 'Optimized and performant bundle',
-
-		'projects.3.detailed_desc':
-			'Mobile-first application built with Vue.js and Firebase, offering real-time synchronization and offline experience. Complete integration with cloud services.',
-		'projects.3.feature1': 'Real-time synchronization',
-		'projects.3.feature2': 'Offline functionality',
-		'projects.3.feature3': 'Firebase integration',
 		// Contact
 		'contact.title': 'Contact',
 		'contact.open_to_work': 'Open to work & Collabs',
@@ -273,7 +296,75 @@ export const dictionaries: Dictionaries = {
 		'projects.empty.description': 'Try adjusting your filters or check back later.',
 
 		// Accessibility
-		'projects.image.alt': 'Project image'
+		'projects.image.alt': 'Project image',
+
+		//DUARTE:
+		'projects.1.title': 'Duarte Distribuidora',
+		'projects.1.desc': 'Complete management system for a beverage distribution company.',
+
+		'projects.1.detailed_desc':
+			'Project developed for Duarte Distribuidora de Bebidas. The system manages multiple distributors with features such as inventory, finance, expenses, cost tracking, custom dashboards, digital menu, invoicing, and iFood integration. Started in 2024 and currently in its final stages, the system is still being improved and expanded.',
+		'projects.1.feature1': 'Product management (catalog, categories, and pricing)',
+		'projects.1.feature2': 'Inventory control with movements and alerts',
+		'projects.1.feature3': 'Financial management: expenses, costs, and cash flow',
+		'projects.1.feature4': 'Custom dashboards for business insights',
+		'projects.1.feature5': 'Integrated digital menu',
+		'projects.1.feature6': 'iFood integration',
+		'projects.1.feature7': 'Electronic invoicing (NF-e)',
+		'projects.1.feature8': 'Multi-distributor support',
+		'projects.1.feature9': 'POS (Point of Sale)',
+		'projects.1.feature10': 'User and role management',
+		'projects.1.feature11': 'Customer and supplier management',
+
+		//MYFOOD:
+		'projects.2.title': 'MyFood',
+		'projects.2.desc': 'Restaurant system for managing products, tables, and QR Code orders.',
+
+		'projects.2.detailed_desc':
+			'Developed as an interdisciplinary college project, MyFood is a complete system for restaurants. It allows managing products, menus, and tables with unique QR Codes. Customers scan the table QR code, place their order directly from their phone, the order is sent to the kitchen, and payments are handled via Mercado Pago API integration. The system also supports customer reviews for each dish.',
+
+		// Features
+		'projects.2.feature1': 'Product and menu management',
+		'projects.2.feature2': 'Table management with unique QR Codes',
+		'projects.2.feature3': 'Customer self-service ordering via phone',
+		'projects.2.feature4': 'Orders automatically sent to the kitchen',
+		'projects.2.feature5': 'Payments integrated with Mercado Pago',
+		'projects.2.feature6': 'Customer reviews by dish',
+
+		//VILLA:
+		'projects.3.title': 'Villa Rica Lofts',
+		'projects.3.desc': 'Landing page for Villa Rica Lofts with information and reservations.',
+
+		'projects.3.detailed_desc':
+			'Project developed for Villa Rica Lofts, a property located in Serra da Moeda. The landing page showcases property details, photo galleries, integrates with the Hotelink reservation system, and supports multiple internal pages. Built with Svelte, Directus as database, TailwindCSS, and Paraglide for internationalization.',
+
+		// Features
+		'projects.3.feature1': 'Landing page with property information',
+		'projects.3.feature2': 'Integration with Hotelink reservation system',
+		'projects.3.feature3': 'Multiple internal pages (gallery, contact, about)',
+		'projects.3.feature4': 'Internationalization with Paraglide',
+		'projects.3.feature5': 'Database managed with Directus',
+
+		//ROTA:
+		'projects.4.title': 'Rota 88 - Mobile',
+		'projects.4.desc': 'Mobile app for couriers to receive and deliver orders.',
+
+		'projects.4.detailed_desc':
+			'Rota 88 Mobile is an app developed for delivery drivers to monitor their orders in real-time. It allows map visualization, planned routes, and details of pending deliveries. The project started 6 months ago and was completed on August 29, 2025, ensuring delivery tracking and efficiency.',
+		'projects.4.feature1': 'Map view with order locations',
+		'projects.4.feature2': 'Optimized delivery routes',
+		'projects.4.feature3': 'List of orders to deliver',
+
+		// Projeto Rota 88 Web
+		'projects.5.title': 'Rota 88 - Web',
+		'projects.5.desc': 'Web platform for logistics management and real-time order tracking.',
+
+		'projects.5.detailed_desc':
+			'Rota 88 Web is a platform decoupled from the mobile app, focused on logistics. It supports integration with order platforms following open standards (e.g., iFood, Saipos), user management, real-time map visualization of orders and drivers, and custom reports. Built with Svelte and SvelteKit, the backend uses Postgres.',
+		'projects.5.feature1': 'Real-time map view of orders and delivery drivers',
+		'projects.5.feature2': 'User and role management',
+		'projects.5.feature3': 'Custom reports',
+		'projects.5.feature4': 'Integration with order platforms following Open Delivery standards'
 	}
 };
 

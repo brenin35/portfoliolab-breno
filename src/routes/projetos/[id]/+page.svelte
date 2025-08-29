@@ -18,7 +18,7 @@
 		});
 	}
 
-	function getStatusBadgeClass(status:string) {
+	function getStatusBadgeClass(status: string) {
 		switch (status) {
 			case 'completed':
 				return 'badge-success';
@@ -29,7 +29,7 @@
 		}
 	}
 
-	function formatDate(dateString:string) {
+	function formatDate(dateString: string | null) {
 		if (!dateString) return translate('projects.ongoing', currentLocale);
 		const [year, month] = dateString.split('-');
 		const months = {
@@ -50,6 +50,15 @@
 
 <div class="min-h-screen bg-base-100">
 	<div class="container mx-auto max-w-6xl px-4 py-8">
+		<div class="border-b border-base-200 pb-4">
+			<a href="/projetos" class="btn btn-ghost">
+				<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"
+					></path>
+				</svg>
+				{translate('projects.back_to_projects', currentLocale)}
+			</a>
+		</div>
 		{#if notFound}
 			<div class="hero min-h-96">
 				<div class="hero-content text-center">
@@ -63,7 +72,7 @@
 				</div>
 			</div>
 		{:else if project}
-			<article class="space-y-8">
+			<article class="mt-4 space-y-8">
 				<header class="space-y-4">
 					<div class="flex flex-wrap items-center gap-3">
 						<h1 class="text-4xl font-bold text-base-content">
@@ -90,11 +99,13 @@
 				</header>
 
 				<div class="w-full">
-					<img
-						src={project.imageUrl || '/placeholder.svg'}
-						alt={translate(project.tituloKey, currentLocale)}
-						class="h-64 w-full rounded-lg object-cover shadow-lg md:h-96"
-					/>
+					{#each project.images as image}
+						<img
+							src={image}
+							alt={translate(project.tituloKey, currentLocale)}
+							class="h-64 w-full rounded-lg object-cover shadow-lg md:h-96"
+						/>
+					{/each}
 				</div>
 
 				<div class="flex flex-wrap gap-4">
@@ -177,20 +188,6 @@
 						</ul>
 					</div>
 				{/if}
-
-				<!-- <div class="border-t border-base-200 pt-8">
-					<a href="/projects" class="btn btn-ghost">
-						<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M15 19l-7-7 7-7"
-							></path>
-						</svg>
-						{translate('projects.back_to_projects', currentLocale)}
-					</a>
-				</div> -->
 			</article>
 		{:else}
 			<div class="flex min-h-96 items-center justify-center">

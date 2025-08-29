@@ -86,7 +86,7 @@
 							<!-- {t('profile.photo', currentLocale)} -->
 							<img
 								class="h-full w-full object-cover"
-								src="https://atletico.com.br/wp-content/uploads/2024/07/53872156304_87a4c8f811_k-1.jpg"
+								src="/breno.webp"
 								alt=""
 							/>
 						</div>
@@ -392,37 +392,6 @@
 						</a>
 					</div>
 				</div>
-
-				<!-- <form class="flex flex-col gap-4">
-					<div>
-						<label for="name" class="mb-2 block text-sm font-medium text-base-content">{t('form.name', currentLocale)}</label>
-						<input
-							type="text"
-							id="name"
-							class="input w-full"
-							placeholder={t('form.placeholder.name', currentLocale)}
-						/>
-					</div>
-					<div>
-						<label for="email" class="mb-2 block text-sm font-medium text-base-content">{t('form.email', currentLocale)}</label
-						>
-						<input
-							type="email"
-							id="email"
-							class="input w-full"
-							placeholder={t('form.placeholder.email', currentLocale)}
-						/>
-					</div>
-					<div>
-						<label for="message" class="mb-2 block text-sm font-medium text-base-content"
-							>{t('form.message', currentLocale)}</label
-						>
-						<textarea id="message" rows="5" class="textarea w-full" placeholder={t('form.placeholder.message', currentLocale)}
-						></textarea>
-					</div>
-					<button type="submit" class="btn btn-primary"> {t('form.submit', currentLocale)} </button>
-				</form> -->
-
 				<form
 					bind:this={formElement}
 					class="flex flex-col gap-4"

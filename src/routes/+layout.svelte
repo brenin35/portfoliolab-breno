@@ -121,6 +121,15 @@
 	</div>
 {/if}
 
+<div class="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+	<div class="glow-orb glow-orb-1"></div>
+	<div class="glow-orb glow-orb-2"></div>
+	<div class="glow-orb glow-orb-3"></div>
+	<div class="glow-orb glow-orb-4"></div>
+	<div class="glow-orb glow-orb-5"></div>
+</div>
+
+
 <header
 	class="sticky top-0 z-50 transition-opacity {scrollProgress > 0.02
 		? 'border-b border-base-300 bg-base-300/40 backdrop-blur '
@@ -229,7 +238,7 @@
 	{/if}
 	{@render children?.()}
 
-	<footer class="border-t border-base-100 bg-base-300 py-12 text-base-content">
+	<footer class="border-t border-base-100 bg-base-300 py-12 text-base-content z-50">
 		<div class="mx-auto max-w-6xl px-4">
 			<div class="mb-8 grid grid-cols-1 gap-8 text-center md:grid-cols-3 md:text-left">
 				<div class="space-y-4">
@@ -355,3 +364,78 @@
 		</div>
 	</footer>
 </main>
+
+<style>
+	.glow-orb {
+		position: absolute;
+		border-radius: 50%;
+		filter: blur(45px);
+		opacity: 0.18;
+		animation: float 8s ease-in-out infinite;
+	}
+
+	.glow-orb-1 {
+		width: 800px;
+		height: 800px;
+		background: radial-gradient(circle, hsl(var(--p)) 0%, transparent 50%);
+		top: 10%;
+		left: 10%;
+		animation-delay: 0s;
+		animation-duration: 8s;
+	}
+
+	.glow-orb-2 {
+		width: 700px;
+		height: 700px;
+		background: radial-gradient(circle, hsl(var(--s)) 0%, transparent 40%);
+		top: 60%;
+		right: 15%;
+		animation-delay: -2s;
+		animation-duration: 6s;
+	}
+
+	.glow-orb-3 {
+		width: 1300px;
+		height: 1800px;
+		background: radial-gradient(circle, hsl(var(--a)) 0%, transparent 40%);
+		bottom: 20%;
+		left: 20%;
+		animation-delay: -4s;
+		animation-duration: 14s;
+	}
+
+	.glow-orb-4 {
+		width: 120px;
+		height: 120px;
+		background: radial-gradient(circle, hsl(var(--p)) 0%, transparent 50%);
+		top: 30%;
+		right: 40%;
+		animation-delay: -6s;
+		animation-duration: 5s;
+	}
+
+	.glow-orb-5 {
+		width: 300px;
+		height: 300px;
+		background: radial-gradient(circle, hsl(var(--s)) 0%, transparent 40%);
+		bottom: 40%;
+		right: 25%;
+		animation-delay: -8s;
+		animation-duration: 7s;
+	}
+
+	@keyframes float {
+		0%, 100% {
+			transform: translate(0, 0) scale(1);
+		}
+		25% {
+			transform: translate(10px, -15px) scale(1.1);
+		}
+		50% {
+			transform: translate(-5px, -10px) scale(0.9);
+		}
+		75% {
+			transform: translate(-10px, 5px) scale(1.05);
+		}
+	}
+</style>

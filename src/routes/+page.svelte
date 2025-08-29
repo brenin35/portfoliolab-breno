@@ -53,16 +53,26 @@
 			loading = false;
 		};
 	};
+
+	const names = ['Breno', 'de', 'Oliveira', 'Brandão'];
 </script>
+
 <section class="flex min-h-screen items-center">
 	<div class="mx-auto w-full max-w-6xl px-4">
 		<Animate>
 			<div class="grid items-center gap-12 lg:grid-cols-2">
 				<div class="space-y-8 text-center lg:text-left">
-					<TextAnimation
-						class="text-left text-5xl leading-tight font-bold text-base-content lg:text-7xl"
-						words={t('brand.name', currentLocale)}
-					/>
+					<div class="wave-container">
+						<h1
+							class=" flex flex-wrap text-left text-5xl leading-tight font-bold text-base-content lg:text-5xl"
+						>
+							{#each names as name, i}
+								<Animate delay={i * 0.3}>
+									<span class="name-text mr-5" style="animation-delay: {i * 0.2}s">{name}</span>
+								</Animate>
+							{/each}
+						</h1>
+					</div>
 					<p class="mx-auto max-w-2xl text-xl leading-relaxed text-base-content lg:mx-0">
 						{t('hero.intro', currentLocale)}
 					</p>
@@ -178,7 +188,7 @@
 					<h2 class="text-center text-3xl font-bold text-base-content lg:text-left">
 						{t('projects.title', currentLocale)}
 					</h2>
-					<a href="/projetos" class="btn md:px-16 btn-primary"
+					<a href="/projetos" class="btn btn-primary md:px-16"
 						>{t('projects.see_more', currentLocale)} <ArrowRight /></a
 					>
 				</div>
@@ -186,7 +196,7 @@
 					{#each projetos.slice(0, 3) as projeto}
 						<a
 							href="/projetos/{projeto.id}"
-							class="group relative rounded-lg border border-base-300 p-1 hover:scale-102 transition-all duration-500"
+							class="group relative rounded-lg border border-base-300 p-1 transition-all duration-500 hover:scale-102"
 						>
 							<GlowCard
 								spread={50}
@@ -478,3 +488,42 @@
 		</Animate>
 	</div>
 </section>
+
+<style>
+	.name-text {
+		display: inline-block;
+		background: linear-gradient(45deg, hsl(var(--p)), hsl(var(--s)), hsl(var(--a)));
+		background-size: 200% 200%;
+		-webkit-background-clip: text;
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
+		animation:
+			nameWave 10s ease-in-out infinite,
+			gradientShift 7s ease-in-out infinite;
+		margin-right: 20px;
+		transition: transform 0.3s ease;
+	}
+
+	@keyframes nameWave {
+		0%,
+		100% {
+			transform: translateY(0) rotate(0deg);
+		}
+		25% {
+			transform: translateY(-8px) rotate(1deg);
+		}
+		75% {
+			transform: translateY(-4px) rotate(-1deg);
+		}
+	}
+
+	@keyframes gradientShift {
+		0%,
+		100% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+	}
+</style>

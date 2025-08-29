@@ -8,6 +8,8 @@
 	let { projeto: project } = $derived(data);
 
 	let notFound = $state(false);
+	let lightboxOpen = $state(false);
+	let currentImageIndex = $state(0);
 
 	let currentLocale = $state(getLocale());
 
@@ -38,6 +40,55 @@
 		};
 		return `${months[currentLocale][parseInt(month) - 1]} ${year}`;
 	}
+
+	function openLightbox(index: number) {
+		currentImageIndex = index;
+		lightboxOpen = true;
+		document.body.style.overflow = 'hidden';
+	}
+
+	function closeLightbox() {
+		lightboxOpen = false;
+		document.body.style.overflow = 'auto';
+	}
+
+	function nextImage() {
+		if (project?.images) {
+			currentImageIndex = (currentImageIndex + 1) % project.images.length;
+		}
+	}
+
+	function prevImage() {
+		if (project?.images) {
+			currentImageIndex =
+				currentImageIndex === 0 ? project.images.length - 1 : currentImageIndex - 1;
+		}
+	}
+
+	function handleKeydown(event: KeyboardEvent) {
+		if (!lightboxOpen) return;
+
+		switch (event.key) {
+			case 'Escape':
+				closeLightbox();
+				break;
+			case 'ArrowLeft':
+				prevImage();
+				break;
+			case 'ArrowRight':
+				nextImage();
+				break;
+		}
+	}
+
+	function getMosaicGridClass(imageCount: number) {
+		if (imageCount === 1) return 'aspect-video max-h-80 md:max-h-[50vh] object-cover';
+		if (imageCount === 2) return 'grid-cols-1 md:grid-cols-2';
+		if (imageCount === 3) return 'grid-cols-1 md:grid-cols-3';
+		if (imageCount === 4) return 'aspect-square max-h-60 md:max-h-92 object-cover';
+		if (imageCount <= 6) return 'grid-cols-2 md:grid-cols-3';
+		return 'aspect-square max-h-60 md:max-h-72 object-cover';
+	}
 </script>
 
 <svelte:head>
@@ -47,6 +98,8 @@
 			: translate('projects.title', currentLocale)}</title
 	>
 </svelte:head>
+
+<svelte:window onkeydown={handleKeydown} />
 
 <div class="min-h-screen bg-base-100">
 	<div class="container mx-auto max-w-6xl px-4 py-8">
@@ -98,15 +151,48 @@
 					</div>
 				</header>
 
-				<div class="w-full">
-					{#each project.images as image}
-						<img
-							src={image}
-							alt={translate(project.tituloKey, currentLocale)}
-							class="h-64 w-full rounded-lg object-cover shadow-lg md:h-96"
-						/>
-					{/each}
-				</div>
+				{#if project.images && project.images.length > 0}
+					<div class="w-full">
+						<div class="grid gap-3 {getMosaicGridClass(project.images.length)} w-full">
+							{#each project.images as image, index}
+								<button
+									class="group relative overflow-hidden rounded-lg bg-base-200 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:outline-none"
+									onclick={() => openLightbox(index)}
+									type="button"
+									aria-label="Open image in lightbox"
+								>
+									<img
+										src={image || '/placeholder.svg'}
+										alt="{translate(project.tituloKey, currentLocale)} - Image {index + 1}"
+										class="aspect-square w-full object-cover transition-transform duration-300 group-hover:scale-105"
+										loading={index < 4 ? 'eager' : 'lazy'}
+									/>
+									<div
+										class="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/20"
+									>
+										<div
+											class="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+										>
+											<svg
+												class="h-8 w-8 text-white"
+												fill="none"
+												stroke="currentColor"
+												viewBox="0 0 24 24"
+											>
+												<path
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													stroke-width="2"
+													d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+												></path>
+											</svg>
+										</div>
+									</div>
+								</button>
+							{/each}
+						</div>
+					</div>
+				{/if}
 
 				<div class="flex flex-wrap gap-4">
 					{#if project.liveUrl}
@@ -115,6 +201,7 @@
 							target="_blank"
 							rel="noopener noreferrer"
 							class="btn btn-primary"
+							aria-label="View live project"
 						>
 							<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path
@@ -134,6 +221,7 @@
 							target="_blank"
 							rel="noopener noreferrer"
 							class="btn btn-outline"
+							aria-label="View project code on GitHub"
 						>
 							<svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
 								<path
@@ -196,3 +284,71 @@
 		{/if}
 	</div>
 </div>
+
+{#if lightboxOpen && project?.images}
+  <div
+    class="fixed inset-0 z-50 flex items-center justify-center bg-base-200/90 p-4"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="lightbox-title"
+  >
+    <div class="relative max-h-full max-w-full" role="region" aria-label="Image carousel">
+      <img
+        src={project.images[currentImageIndex] || '/placeholder.svg'}
+        alt="{translate(project.tituloKey, currentLocale)} - Image {currentImageIndex + 1}"
+        class="max-h-[90vh] max-w-[90vw] rounded-lg object-contain shadow-2xl"
+      />
+
+      <button
+        class="absolute -top-4 -right-4 flex h-10 w-10 items-center justify-center rounded-full bg-base-200 text-base-content hover:bg-base-300 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:outline-none"
+        onclick={closeLightbox}
+        type="button"
+        aria-label="Close lightbox"
+      >
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          ></path>
+        </svg>
+      </button>
+
+      {#if project.images.length > 1}
+        <button
+          class="absolute top-1/2 left-4 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-base-200 text-base-content hover:bg-base-300 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:outline-none"
+          onclick={prevImage}
+          type="button"
+          aria-label="Previous image"
+        >
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"
+            ></path>
+          </svg>
+        </button>
+        <button
+          class="absolute top-1/2 right-4 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-base-200 text-base-content hover:bg-base-300 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:outline-none"
+          onclick={nextImage}
+          type="button"
+          aria-label="Next image"
+        >
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"
+            ></path>
+          </svg>
+        </button>
+        <div
+          class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-base-200/80 px-3 py-1 text-sm text-base-content backdrop-blur-sm"
+          aria-live="polite"
+        >
+          {currentImageIndex + 1} / {project.images.length}
+        </div>
+      {/if}
+    </div>
+  </div>
+{/if}
